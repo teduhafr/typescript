@@ -14,7 +14,7 @@ type Loc = {
 }
 
 //contoh penggunaan union bisa milih di typenya juga
-let coordinates: Point | Loc = {x: 1, y: 2};
+let coordinates: Point1 | Loc = {x: 1, y: 2};
 coordinates = {lat: 223, long: 332}; // bisa di set diubah ke loc, meski di defaultnya point. kode di atas
 
 //union types with function
@@ -41,3 +41,32 @@ function calculatedTax1 (price: number | string, tax: number ) {
 
 calculatedTax('2000',0.5);
 calculatedTax(4000,0.5);
+
+
+//union types biar bisa memakai beberapa type, tapi ga any supaya ga semua bisa masuk
+const stuff: (number | string) []  = [1,2,3,'asdasd','asdasds']; //dari type
+const cooord: (Point1 | Loc) [] = []
+cooord.push({x: 3, y:5});
+cooord.push({lat: 3434, long:444});
+
+//LITERAL TYPES
+let zero: 0 = 0 ;   // ini tidak adak an bisa diubah, misal zero = 5 , pasti gagal. sama kaya contoh di bawah juga
+let hi: 'hi' = 'hi';
+
+//bisa juga membatasi beberapa pilihan jawban saja
+const giveAnswer = (answer: 'yes' | 'no' | 'maybe') => {
+    return `The Answer is ${answer}`
+} 
+//fungsi di atas hanya bisa menerima parameter yes, no, may be
+giveAnswer('maybe');
+//giveAnswer('susah'); --> tidak akan bisa jalan
+
+let  mood: 'Happy' | 'Sad' | 'Angry' = 'Sad';
+mood = 'Angry';
+// mood = 'error'; --> tidak bisa, error
+
+
+
+
+
+
