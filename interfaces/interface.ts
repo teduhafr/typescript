@@ -1,5 +1,5 @@
 //mirip type
-interface Point {
+interface Point3 {
     x: number
     y: number
 }
@@ -42,3 +42,5 @@ const shoes: Product = {
     }
 
 }
+
+shoes.applyDiscount(.3);
